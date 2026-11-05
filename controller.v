@@ -16,7 +16,7 @@ module controller (
     output reg  ackRdWts,
     output reg  ackRdIns,
     output reg  ackDataSent,
-	output reg dataReady,
+	output reg  dataReady,
     output reg  rotWts,
     output reg  rotIns,
     output reg  rotMpy,
@@ -37,7 +37,7 @@ module controller (
                IDLE = 3'd1,
                LDWTS  = 3'd2,
                LDINS = 3'd3,
-			  DOMPY = 3'd4,
+			   DOMPY = 3'd4,
                SENDDATA = 3'd5;
 	
 

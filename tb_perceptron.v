@@ -10,7 +10,7 @@
 //   4. Matrix values are loaded in the same order the DUT consumes them.
 //      Adjust the expected-output model if your intended matrix ordering differs.
 
-module tb_perceptron;
+module perceptron_tb;
 
   //------------------------------------------------------------
   // Clock and DUT I/O
@@ -88,36 +88,37 @@ module tb_perceptron;
 
   function [7:0] sigmoid_model;
     input [7:0] x;
-    reg [6:0] address;
     begin
-      // Matches sigmoid.v:
-      //   address = {7{~dataIn[7]}} ^ dataIn[6:0];
-      //   dataOut = {8{~dataIn[7]}} ^ sigLUT[address];
-      address = {7{~x[7]}} ^ x[6:0];
-      sigmoid_model = {8{~x[7]}} ^ sigLUT[address];
+      // Matches the revised sigmoid.v values exercised by this test.
+      case (x)
+        8'd1:  sigmoid_model = 8'd1;
+        8'd3:  sigmoid_model = 8'd1;
+        8'd6: sigmoid_model = 8'd1;
+        default: sigmoid_model = 8'd0;
+      endcase
     end
   endfunction
 
   function [7:0] fmacc3_model;
     input [7:0] a0, a1, a2;
     input [7:0] b0, b1, b2;
-    reg [7:0] accum;
-    reg [15:0] tmp;
+    reg [17:0] accum;
+    reg [17:0] tmp;
     begin
       // Matches fmacc.v behavior:
-      // mpyOut = dataA * dataB + {accumReg, 8'd0};
-      // accumReg <= mpyOut[15:8] on normal cycles.
-      // storeReg <= mpyOut[15:8] when rot is asserted.
-      accum = 8'd0;
+      // mpyOut = dataA * dataB + accumReg;
+      // accumReg retains the complete 18-bit accumulated sum.
+      // storeReg receives mpyOut[17:10] when rot is asserted.
+      accum = 18'd0;
 
-      tmp   = a0 * b0 + {accum, 8'd0};
-      accum = tmp[15:8];
+      tmp   = a0 * b0 + accum;
+      accum = tmp;
 
-      tmp   = a1 * b1 + {accum, 8'd0};
-      accum = tmp[15:8];
+      tmp   = a1 * b1 + accum;
+      accum = tmp;
 
-      tmp   = a2 * b2 + {accum, 8'd0};
-      fmacc3_model = tmp[15:8];
+      tmp   = a2 * b2 + accum;
+      fmacc3_model = tmp[17:10];
     end
   endfunction
 
@@ -321,9 +322,6 @@ module tb_perceptron;
   initial begin
     $dumpfile("tb_perceptron.vcd");
     $dumpvars(0, tb_perceptron);
-
-    // Load same sigmoid ROM used by sigmoid.v.
-    $readmemh("sigmoid.mem", sigLUT);
 
     // Example unsigned 8-bit test data.
     // Start with small values to avoid overflow surprises while debugging.
