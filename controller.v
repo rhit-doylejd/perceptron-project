@@ -174,12 +174,19 @@ always @(*) begin
 		end
 
         SENDDATA: begin
-            sendOuts = 1'b1;
             if (outStatus == 3'b000) begin
-				sendOuts = 1'b0;
-                next_state = IDLE;
+        		next_state = IDLE;
 			end
-        end
+			else begin
+        		sendOuts = 1'b1;
+        		busReq = 1'b1;
+
+				if (busAck) begin
+           		 	popOut = 1'b1;
+            		next_state = WAIT_ACK_LOW;
+				end
+        	end
+		end 
 
     endcase
 end
