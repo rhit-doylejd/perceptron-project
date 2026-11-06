@@ -22,7 +22,7 @@ wire  [0:7]  net32;
 wire  [0:7]  net30;
 wire  [0:7]  net29;
 wire  [0:2]  net6;
-wire popOutC20;
+wire popOutC2O;
 
 
 // Added port mapping so the positional mapping would stop breaking

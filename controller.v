@@ -16,6 +16,7 @@ module controller (
 	input  wire busAck,
 	output reg  busReq,
 	output reg  popOut,
+	output wire pipelineStall,
  	output reg  ackRdWts,
     output reg  ackRdIns,
     output reg  ackDataSent,
@@ -46,6 +47,7 @@ module controller (
 	
 
     reg [2:0] state, next_state;
+	assign pipelineStall = (outStatus == 3'b111);
 
 always @(posedge clk) begin
     if (rstAll)
