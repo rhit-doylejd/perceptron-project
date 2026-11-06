@@ -20,6 +20,8 @@ module perceptron_tb;
   reg         giveData;
   reg         readInputs;
   reg         readWeights;
+  reg         busAck;
+  wire        busReq;
 
   wire        dataReady;
   wire        ackReadInputs;
@@ -56,6 +58,8 @@ module perceptron_tb;
     .resetAll      (resetAll),
     .globalClk     (globalClk),
     .giveData      (giveData),
+    .busAck        (busAck),
+    .busReq        (busReq),
     .readInputs    (readInputs),
     .readWeights   (readWeights),
     .dataReady     (dataReady),
@@ -150,6 +154,7 @@ module perceptron_tb;
       giveData    = 1'b0;
       readInputs  = 1'b0;
       readWeights = 1'b0;
+      busAck = 1'b0;
       tb_drive_bus = 1'b0;
       tb_bus_value = 8'h00;
 
