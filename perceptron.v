@@ -35,8 +35,8 @@ controller I0 ( .clk(globalClk), .rstAll(resetAll), .readWts(readWeights),
      .dataReady(dataReady), .rotWts(rotWtsC2W), .rotIns(rotInputsC2I), .rotMpy(rotMpyC2F),
      .rstWts(rstWtsC2W), .rstIns(rstInputsC2I), .rstOuts(rstOutC2O), .rstMpy(rstMpyC2F),
      .sendOuts(sendOutsC2O), .ldWts(loadWtsC2W), .ldIns(loadInputsC2I), .ldOuts(loadOutsC2O));
-fmacc I1 ( globalClk, rstMpyC2F, rotMpyC2F, net30[0:7], net29[0:7],
-     colDoneF2C, net32[0:7]);
+fmacc I1 (.clk(globalClk), .rst(rstMpyC2F), .rot(rotMpyC2F), .stall(pipelineStall), .dataA(net30[0:7]),
+     .dataB(net29[0:7]), .colDone(colDoneF2C), .fmacOut(net32[0:7]));
 inputFIFO I2 ( globalClk, rotInputsC2I, loadInputsC2I, rstInputsC2I,
      dataBus[7:0], insFullI2C, insCycledI2C, net30[0:7]);
 outputFIFO I3 ( .clk(globalClk), .rst(rstOutC2O), .load(loadOutsC2O),
