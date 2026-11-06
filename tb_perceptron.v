@@ -263,41 +263,53 @@ module perceptron_tb;
     begin
       $display("[%0t] Reading output vector...", $time);
 
-      tb_drive_bus = 1'b0;   // release bus so DUT can drive it
+      tb_drive_bus = 1'b0;
+      busAck = 1'b0;
 
-    // Request the output transfer away from the active clock edge.
-    @(negedge globalClk);
-    giveData = 1'b1;
+    // Request output transmission
+      @(negedge globalClk);
+      giveData = 1'b1;
 
-    // Wait for the controller to enable the output FIFO.
-    wait (dut.sendOutsC2O === 1'b1);
-    #1;
+      @(negedge globalClk);
+      giveData = 1'b0;
 
-    // The first output is already on the bus. Do not wait for
-    // another clock edge before sampling it.
-    observed[0] = dataBus;
-    $display("[%0t] observed[0] = 0x%02h", $time, observed[0]);
+    // Read all three outputs
+      for (i = 0; i < 3; i = i + 1) begin
 
-    // The request has been accepted.
-    @(negedge globalClk);
-    giveData = 1'b0;
+        // Wait for request from controller
+        wait (busReq === 1'b1);
 
-      for (i = 1; i < 3; i = i + 1) begin
-        @(posedge globalClk);
-        #1; 
+        // Delay acknowledgment by 3 clock cycles
+        repeat (3) @(negedge globalClk);
+
+        // Capture data before acknowledging
         observed[i] = dataBus;
-        $display("[%0t] observed[%0d] = 0x%02h", $time, i, observed[i]);
 
-      end
+        $display("[%0t] Output[%0d] = %h",
+                 $time, i, observed[i]);
 
-      @(posedge globalClk);
-      wait (ackDataSent === 1'b1);
+        // Acknowledge the data
+        busAck = 1'b1;
 
-      $display("[%0t] Output transfer acknowledged", $time);
+        // Keep ACK high through a rising edge
+        @(negedge globalClk);
 
-      repeat (2) @(posedge globalClk);
+        // Release ACK
+        busAck = 1'b0;
+
+        // Wait until request is released
+        wait (busReq === 1'b0);
+
     end
-  endtask
+
+    // Wait for all data to be transmitted
+    wait (ackDataSent === 1'b1);
+
+    $display("[%0t] All outputs acknowledged", $time);
+
+   end
+endtask
+    
 
   task check_outputs;
     begin
