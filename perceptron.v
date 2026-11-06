@@ -23,13 +23,14 @@ wire  [0:7]  net30;
 wire  [0:7]  net29;
 wire  [0:2]  net6;
 wire popOutC2O;
+wire pipelineStall;
 
 
 // Added port mapping so the positional mapping would stop breaking
 controller I0 ( .clk(globalClk), .rstAll(resetAll), .readWts(readWeights),
      .readIns(readInputs), .giveData(giveData), .insFull(insFullI2C),
      .wtsFull(wtsFullI2C), .insCycled(insCycledI2C), .colDone(colDoneF2C),
-     .outStatus(net6[0:2]), .busAck(busAck), .busReq(busReq), .popOut(popOutC2O),
+     .outStatus(net6[0:2]), .busAck(busAck), .busReq(busReq), .popOut(popOutC2O), .pipelineStall(pipelineStall),
      .ackRdWts(ackReadWeights), .ackRdIns(ackReadInputs), .ackDataSent(ackDataSent),
      .dataReady(dataReady), .rotWts(rotWtsC2W), .rotIns(rotInputsC2I), .rotMpy(rotMpyC2F),
      .rstWts(rstWtsC2W), .rstIns(rstInputsC2I), .rstOuts(rstOutC2O), .rstMpy(rstMpyC2F),
