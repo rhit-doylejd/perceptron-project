@@ -187,6 +187,17 @@ always @(*) begin
 				end
         	end
 		end 
+	WAIT_ACK_LOW: begin
+
+    	if (!busAck) begin
+
+        	if (outStatus == 3'b000)
+            	next_state = IDLE;
+        	else
+            	next_state = SENDDATA;
+		end
+
+	end
 
     endcase
 end
