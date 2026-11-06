@@ -16,7 +16,7 @@ always @(posedge clk) begin
 		end
 	end
 
-	if (load) begin
+	else if (load) begin
 		fifoReg[8][7:0] <= fifoDataIn;
 		fifoReg[8][8] <= 1;
 		for(i=0;i<=7;i=i+1)begin
