@@ -90,6 +90,8 @@ always @(*) begin
 
     // Defaults
     next_state = state;
+	busReq = 1'b0;
+	popOut = 1'b0;
     rotWts=0;
     rotIns=0;
     rotMpy=0;
