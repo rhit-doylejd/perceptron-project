@@ -13,7 +13,10 @@ module controller (
     input  wire insCycled,
 	input  wire colDone,
     input  wire [2:0] outStatus,
-    output reg  ackRdWts,
+	input  wire busAck,
+	output reg  busReq,
+	output reg  popOut,
+ 	output reg  ackRdWts,
     output reg  ackRdIns,
     output reg  ackDataSent,
 	output reg  dataReady,
@@ -34,11 +37,12 @@ module controller (
     // State encoding
     //---------------------------------------------------------
     localparam INIT = 3'd0,
-               IDLE = 3'd1,
-               LDWTS  = 3'd2,
-               LDINS = 3'd3,
-			   DOMPY = 3'd4,
-               SENDDATA = 3'd5;
+           IDLE = 3'd1,
+           LDWTS = 3'd2,
+           LDINS = 3'd3,
+           DOMPY = 3'd4,
+           SENDDATA = 3'd5,
+           WAIT_ACK_LOW = 3'd6;
 	
 
     reg [2:0] state, next_state;
