@@ -13,7 +13,7 @@ module outputFIFO (input clk,
 
 reg [8:0] fifoReg [0:2];
 
-assign fifoDataOut = busEn ? fifoReg[2][7:0] : {8{1'bz}};			// Change Here
+assign fifoDataOut = busEn ? fifoReg[2][7:0] : {8{1'bz}};
 assign fifoStat = {fifoReg[0][8] , fifoReg[1][8], fifoReg[2][8]};
 
 always @(posedge clk) begin

@@ -47,7 +47,8 @@ module controller (
 	
 
     reg [2:0] state, next_state;
-	assign pipelineStall = (outStatus == 3'b111);
+	assign pipelineStall = (state != DOMPY);
+
 
 always @(posedge clk) begin
     if (rstAll)
@@ -77,13 +78,13 @@ always @(posedge clk) begin
 
 	if (state == IDLE && giveData)
 		ackDataSent <= 1'b0;
-	else if (state == SENDDATA && outStatus == 3'b000)
-		ackDataSent <=1'b1;
+	else if (state == WAIT_ACK_LOW && !busAck && outStatus == 3'b000)
+		ackDataSent <= 1'b1;
 
-	if (state == SENDDATA && outStatus == 3'b000)
+	if (state == WAIT_ACK_LOW && !busAck && outStatus == 3'b000)
 		dataReady <= 1'b0;
 	else if (state == DOMPY && outStatus == 3'b111)
-		dataReady <= 1'b1; 
+		dataReady <= 1'b1;
 
 end
 		
@@ -189,17 +190,19 @@ always @(*) begin
 				end
         	end
 		end 
-	WAIT_ACK_LOW: begin
+		WAIT_ACK_LOW: begin
 
-    	if (!busAck) begin
+    		if (!busAck) begin
 
-        	if (outStatus == 3'b000)
-            	next_state = IDLE;
-        	else
-            	next_state = SENDDATA;
+        		if (outStatus == 3'b000)
+            		next_state = IDLE;
+        		else
+            		next_state = SENDDATA;
+			end
 		end
 
-	end
+	default: next_state = INIT;
+
 
     endcase
 end
