@@ -1,0 +1,108 @@
+TOOL:	xrun(64)	25.03-s013: Started on Nov 08, 2026 at 12:30:37 EST
+xrun(64): 25.03-s013: (c) Copyright 1995-2026 Cadence Design Systems, Inc.
+file: ../tb_perceptron_hs.v
+	module worklib.tb_perceptron_hs:v
+		errors: 0, warnings: 0
+file: ../perceptron.v
+	module worklib.perceptron:v
+		errors: 0, warnings: 0
+file: ../controller.v
+	module worklib.controller:v
+		errors: 0, warnings: 0
+file: ../inputFIFO.v
+	module worklib.inputFIFO:v
+		errors: 0, warnings: 0
+file: ../weightFIFO.v
+	module worklib.weightFIFO:v
+		errors: 0, warnings: 0
+file: ../fmacc.v
+	module worklib.fmacc:v
+		errors: 0, warnings: 0
+file: ../sigmoid.v
+	module worklib.sigmoid:v
+		errors: 0, warnings: 0
+file: ../outputFIFO.v
+	module worklib.outputFIFO:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb_perceptron_hs
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.weightFIFO:v <0x13580b20>
+			streams:   8, words: 11448
+		worklib.outputFIFO:v <0x2efc5709>
+			streams:   6, words:  3508
+		worklib.inputFIFO:v <0x6f03a17c>
+			streams:  18, words:  7666
+		worklib.fmacc:v <0x61464c48>
+			streams:   6, words:  1875
+		worklib.sigmoid:v <0x263ccb80>
+			streams:   1, words:  3376
+		worklib.tb_perceptron_hs:v <0x3331c224>
+			streams:  22, words: 47024
+		worklib.controller:v <0x14a7f349>
+			streams:   9, words: 10617
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 9       8
+		Resolved nets:           0       1
+		Registers:              66      65
+		Scalar wires:           28       -
+		Vectored wires:         11       -
+		Always blocks:          10       9
+		Initial blocks:          3       3
+		Cont. assignments:      11      12
+		Pseudo assignments:      7       -
+		Process Clocks:          6       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_perceptron_hs:v
+Loading snapshot worklib.tb_perceptron_hs:v .................... Done
+xcelium> source /usr/local/cadence/XCELIUM2503/tools/xcelium/files/xmsimrc
+xcelium> run
+Expected outputs: 0x01 0x01 0x01
+[380000] observed[0] = 0x01 (after 0 stall cycles)
+[400000] observed[1] = 0x01 (after 0 stall cycles)
+[420000] observed[2] = 0x01 (after 0 stall cycles)
+[440000] Output transfer acknowledged, send took 6 cycles
+PASS: T1 vec0 no stall
+Expected outputs: 0x01 0x01 0x01
+[890000] observed[0] = 0x01 (after 5 stall cycles)
+[960000] observed[1] = 0x01 (after 5 stall cycles)
+[1030000] observed[2] = 0x01 (after 5 stall cycles)
+[1050000] Output transfer acknowledged, send took 21 cycles
+PASS: T2 vec0 fixed stall 5
+Expected outputs: 0x05 0x80 0xfa
+[1450000] observed[0] = 0x05 (after 0 stall cycles)
+[1470000] observed[1] = 0x80 (after 0 stall cycles)
+[1490000] observed[2] = 0xfa (after 0 stall cycles)
+[1510000] Output transfer acknowledged, send took 6 cycles
+PASS: T3 vec1 no stall
+Expected outputs: 0x05 0x80 0xfa
+[1950000] observed[0] = 0x05 (after 4 stall cycles)
+[2010000] observed[1] = 0x80 (after 4 stall cycles)
+[2040000] observed[2] = 0xfa (after 1 stall cycles)
+[2060000] Output transfer acknowledged, send took 15 cycles
+PASS: T4 vec1 random stall
+Expected outputs: 0x01 0x01 0x01
+[2480000] observed[0] = 0x01 (after 2 stall cycles)
+[2560000] observed[1] = 0x01 (after 6 stall cycles)
+[2580000] observed[2] = 0x01 (after 0 stall cycles)
+[2600000] Output transfer acknowledged, send took 14 cycles
+PASS: T5 repeat random stall
+Expected outputs: 0x05 0x80 0xfa
+PASS: T6 reset during stall
+Expected outputs: 0x01 0x01 0x01
+[3470000] observed[0] = 0x01 (after 3 stall cycles)
+[3520000] observed[1] = 0x01 (after 3 stall cycles)
+[3570000] observed[2] = 0x01 (after 3 stall cycles)
+[3590000] Output transfer acknowledged, send took 15 cycles
+PASS: T6b recovery after reset
+ALL TESTS PASSED
+Simulation complete via $finish(1) at time 3610 NS + 0
+../tb_perceptron_hs.v:231     $finish;
+xcelium> exit
+TOOL:	xrun(64)	25.03-s013: Exiting on Nov 08, 2026 at 12:30:38 EST  (total: 00:00:01)

@@ -1,1 +1,14 @@
 docs/
+
+# Simulator / tool output
+xcelium.d/
+xrun.history
+xrun.log
+*.vcd
+sim/
+work/
+innovus/
+# Server-only setup folders (symlinks)
+hdlfiles/
+tcl/
+constraints/
