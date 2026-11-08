@@ -42,5 +42,7 @@ set_max_fanout $MAX_FANOUT [current_design]
 
 #set_max_leakage_power 150.0 nW [current_design]
 #set_max_dynamic_power 150.0 uW [current_design]
-#set_db lp_power_optimization_weight 0.5 [current_design]
+#set_db lp_power_optimization_weight 0.2 [current_design]
 #set_db leakage_power_effort low
+#set_db dynamic_power_effort low
+#set_db lp_insert_clock_gating true
