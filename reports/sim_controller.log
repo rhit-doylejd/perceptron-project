@@ -1,0 +1,47 @@
+TOOL:	xrun(64)	25.03-s013: Started on Nov 11, 2026 at 01:03:30 EST
+xrun(64): 25.03-s013: (c) Copyright 1995-2026 Cadence Design Systems, Inc.
+file: ../controller.v
+	module worklib.controller:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		tb_controller_hs
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.tb_controller_hs:v <0x2a0bf48e>
+			streams:  21, words: 37818
+		worklib.controller:v <0x32cb2195>
+			streams:   9, words: 10526
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              40      40
+		Scalar wires:           28       -
+		Vectored wires:          1       -
+		Always blocks:           5       5
+		Initial blocks:          3       3
+		Cont. assignments:       1       1
+		Pseudo assignments:     11       -
+		Process Clocks:          2       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.tb_controller_hs:v
+Loading snapshot worklib.tb_controller_hs:v .................... Done
+xcelium> source /usr/local/cadence/XCELIUM2503/tools/xcelium/files/xmsimrc
+xcelium> run
+C1 reset done
+C2 compute done
+C3 backpressure done
+[401000] send (stall=4, hold=2) took 25 cycles, 3 pops
+C4 stalled send done
+[551000] send (stall=0, hold=0) took 7 cycles, 3 pops
+C5 back-to-back transaction done
+C6 empty send done
+C7 reset mid-stall done
+ALL CONTROLLER TESTS PASSED
+Simulation complete via $finish(1) at time 721 NS + 0
+../tb_controller_hs.v:221     $finish;
+xcelium> exit
+TOOL:	xrun(64)	25.03-s013: Exiting on Nov 11, 2026 at 01:03:31 EST  (total: 00:00:01)

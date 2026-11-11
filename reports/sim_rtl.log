@@ -1,28 +1,7 @@
-TOOL:	xrun(64)	25.03-s013: Started on Nov 08, 2026 at 12:30:37 EST
+TOOL:	xrun(64)	25.03-s013: Started on Nov 11, 2026 at 01:03:46 EST
 xrun(64): 25.03-s013: (c) Copyright 1995-2026 Cadence Design Systems, Inc.
-file: ../tb_perceptron_hs.v
-	module worklib.tb_perceptron_hs:v
-		errors: 0, warnings: 0
-file: ../perceptron.v
-	module worklib.perceptron:v
-		errors: 0, warnings: 0
 file: ../controller.v
 	module worklib.controller:v
-		errors: 0, warnings: 0
-file: ../inputFIFO.v
-	module worklib.inputFIFO:v
-		errors: 0, warnings: 0
-file: ../weightFIFO.v
-	module worklib.weightFIFO:v
-		errors: 0, warnings: 0
-file: ../fmacc.v
-	module worklib.fmacc:v
-		errors: 0, warnings: 0
-file: ../sigmoid.v
-	module worklib.sigmoid:v
-		errors: 0, warnings: 0
-file: ../outputFIFO.v
-	module worklib.outputFIFO:v
 		errors: 0, warnings: 0
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
@@ -30,18 +9,8 @@ file: ../outputFIFO.v
 		tb_perceptron_hs
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.weightFIFO:v <0x13580b20>
-			streams:   8, words: 11448
-		worklib.outputFIFO:v <0x2efc5709>
-			streams:   6, words:  3508
-		worklib.inputFIFO:v <0x6f03a17c>
-			streams:  18, words:  7666
-		worklib.fmacc:v <0x61464c48>
-			streams:   6, words:  1875
-		worklib.sigmoid:v <0x263ccb80>
-			streams:   1, words:  3376
 		worklib.tb_perceptron_hs:v <0x3331c224>
-			streams:  22, words: 47024
+			streams:  22, words: 53897
 		worklib.controller:v <0x14a7f349>
 			streams:   9, words: 10617
 	Building instance specific data structures.
@@ -101,8 +70,32 @@ Expected outputs: 0x01 0x01 0x01
 [3570000] observed[2] = 0x01 (after 3 stall cycles)
 [3590000] Output transfer acknowledged, send took 15 cycles
 PASS: T6b recovery after reset
+Expected outputs: 0x13 0x01 0x51
+[3990000] observed[0] = 0x13 (after 0 stall cycles)
+[4010000] observed[1] = 0x01 (after 0 stall cycles)
+[4030000] observed[2] = 0x51 (after 0 stall cycles)
+[4050000] Output transfer acknowledged, send took 6 cycles
+PASS: T7 vec2 no stall
+Expected outputs: 0x00 0x00 0x00
+[4460000] observed[0] = 0x00 (after 1 stall cycles)
+[4540000] observed[1] = 0x00 (after 6 stall cycles)
+[4590000] observed[2] = 0x00 (after 3 stall cycles)
+[4610000] Output transfer acknowledged, send took 16 cycles
+PASS: T8 vec3 zeros rand stall
+Expected outputs: 0x20 0x07 0x41
+[5030000] observed[0] = 0x20 (after 2 stall cycles)
+[5070000] observed[1] = 0x07 (after 2 stall cycles)
+[5110000] observed[2] = 0x41 (after 2 stall cycles)
+[5130000] Output transfer acknowledged, send took 12 cycles
+PASS: T9 vec4 bits stall 2
+Expected outputs: 0xff 0xff 0xff
+[5540000] observed[0] = 0xff (after 1 stall cycles)
+[5570000] observed[1] = 0xff (after 1 stall cycles)
+[5650000] observed[2] = 0xff (after 6 stall cycles)
+[5670000] Output transfer acknowledged, send took 14 cycles
+PASS: T10 vec5 max rand stall
 ALL TESTS PASSED
-Simulation complete via $finish(1) at time 3610 NS + 0
-../tb_perceptron_hs.v:231     $finish;
+Simulation complete via $finish(1) at time 5690 NS + 0
+../tb_perceptron_hs.v:302     $finish;
 xcelium> exit
-TOOL:	xrun(64)	25.03-s013: Exiting on Nov 08, 2026 at 12:30:38 EST  (total: 00:00:01)
+TOOL:	xrun(64)	25.03-s013: Exiting on Nov 11, 2026 at 01:03:46 EST  (total: 00:00:00)

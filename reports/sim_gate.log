@@ -1,0 +1,72 @@
+TOOL:	xrun(64)	25.03-s013: Started on Nov 11, 2026 at 01:54:13 EST
+xrun(64): 25.03-s013: (c) Copyright 1995-2026 Cadence Design Systems, Inc.
+Loading snapshot worklib.tb_perceptron_hs:v .................... Done
+xcelium> source /usr/local/cadence/XCELIUM2503/tools/xcelium/files/xmsimrc
+xcelium> run
+Expected outputs: 0x01 0x01 0x01
+[440000] observed[0] = 0x01 (after 0 stall cycles)
+[460000] observed[1] = 0x01 (after 0 stall cycles)
+[480000] observed[2] = 0x01 (after 0 stall cycles)
+[500000] Output transfer acknowledged, send took 6 cycles
+PASS: T1 vec0 no stall
+Expected outputs: 0x01 0x01 0x01
+[1010000] observed[0] = 0x01 (after 5 stall cycles)
+[1080000] observed[1] = 0x01 (after 5 stall cycles)
+[1150000] observed[2] = 0x01 (after 5 stall cycles)
+[1170000] Output transfer acknowledged, send took 21 cycles
+PASS: T2 vec0 fixed stall 5
+Expected outputs: 0x05 0x80 0xfa
+[1630000] observed[0] = 0x05 (after 0 stall cycles)
+[1650000] observed[1] = 0x80 (after 0 stall cycles)
+[1670000] observed[2] = 0xfa (after 0 stall cycles)
+[1690000] Output transfer acknowledged, send took 6 cycles
+PASS: T3 vec1 no stall
+Expected outputs: 0x05 0x80 0xfa
+[2190000] observed[0] = 0x05 (after 4 stall cycles)
+[2250000] observed[1] = 0x80 (after 4 stall cycles)
+[2280000] observed[2] = 0xfa (after 1 stall cycles)
+[2300000] Output transfer acknowledged, send took 15 cycles
+PASS: T4 vec1 random stall
+Expected outputs: 0x01 0x01 0x01
+[2780000] observed[0] = 0x01 (after 2 stall cycles)
+[2860000] observed[1] = 0x01 (after 6 stall cycles)
+[2880000] observed[2] = 0x01 (after 0 stall cycles)
+[2900000] Output transfer acknowledged, send took 14 cycles
+PASS: T5 repeat random stall
+Expected outputs: 0x05 0x80 0xfa
+PASS: T6 reset during stall
+Expected outputs: 0x01 0x01 0x01
+[3890000] observed[0] = 0x01 (after 3 stall cycles)
+[3940000] observed[1] = 0x01 (after 3 stall cycles)
+[3990000] observed[2] = 0x01 (after 3 stall cycles)
+[4010000] Output transfer acknowledged, send took 15 cycles
+PASS: T6b recovery after reset
+Expected outputs: 0x13 0x01 0x51
+[4470000] observed[0] = 0x13 (after 0 stall cycles)
+[4490000] observed[1] = 0x01 (after 0 stall cycles)
+[4510000] observed[2] = 0x51 (after 0 stall cycles)
+[4530000] Output transfer acknowledged, send took 6 cycles
+PASS: T7 vec2 no stall
+Expected outputs: 0x00 0x00 0x00
+[5000000] observed[0] = 0x00 (after 1 stall cycles)
+[5080000] observed[1] = 0x00 (after 6 stall cycles)
+[5130000] observed[2] = 0x00 (after 3 stall cycles)
+[5150000] Output transfer acknowledged, send took 16 cycles
+PASS: T8 vec3 zeros rand stall
+Expected outputs: 0x20 0x07 0x41
+[5630000] observed[0] = 0x20 (after 2 stall cycles)
+[5670000] observed[1] = 0x07 (after 2 stall cycles)
+[5710000] observed[2] = 0x41 (after 2 stall cycles)
+[5730000] Output transfer acknowledged, send took 12 cycles
+PASS: T9 vec4 bits stall 2
+Expected outputs: 0xff 0xff 0xff
+[6200000] observed[0] = 0xff (after 1 stall cycles)
+[6230000] observed[1] = 0xff (after 1 stall cycles)
+[6310000] observed[2] = 0xff (after 6 stall cycles)
+[6330000] Output transfer acknowledged, send took 14 cycles
+PASS: T10 vec5 max rand stall
+ALL TESTS PASSED
+Simulation complete via $finish(1) at time 6350 NS + 0
+../tb_perceptron_hs.v:302     $finish;
+xcelium> exit
+TOOL:	xrun(64)	25.03-s013: Exiting on Nov 11, 2026 at 01:54:15 EST  (total: 00:00:02)
