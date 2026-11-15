@@ -1,0 +1,35 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v25.13-s088_1, built Thu Mar 26 12:37:48 PDT 2026
+Options:	-stylus 
+Date:		Mon Nov  9 13:23:38 2026
+Host:		cadence-c438.rose-hulman.edu (x86_64 w/Linux 6.12.0-206.104.4.4.el9uek.x86_64) (20cores*40cpus*Intel(R) Xeon(R) Gold 6210U CPU @ 2.50GHz 28160KB)
+OS:		Oracle Linux Server 9.8
+
+License:
+		[13:23:38.269217] Configured Lic search path (25.01-s002): 5280@cadence-lm.rose-hulman.edu
+
+		invs	Innovus Implementation System	INVS100	25.1
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Create and set the environment variable TMPDIR to /Users/students/doylejd/perceptron-project/innovus_temp_283831_473363ea-a177-460f-9783-6ec393cdcb10_cadence-c438.rose-hulman.edu_doylejd_foFIYK.
+
+Change the soft stacksize limit to 0.2%RAM (126 mbytes). Set global soft_stack_size_limit to change the value.
+[INFO] Loading Pegasus 24.11 fill procedures
+Info: Process UID = 283831 / 473363ea-a177-460f-9783-6ec393cdcb10 / DDUpGagvUk
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> set_db init_power_nets {VDD!}
+1 VDD!
+@innovus 2> set_db init_ground_nets {VSS!}
+1 VSS!
+@innovus 3> exit
+*** Message Summary: 0 warning(s), 0 error(s)
+
+
+*** Memory Usage v#1 (Current mem = 2648.137M, initial mem = 1527.691M) ***
+--- Ending "Innovus" (totcpu=0:00:43.1, real=0:04:17, mem=2648.1M) ---

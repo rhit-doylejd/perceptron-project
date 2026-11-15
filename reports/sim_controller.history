@@ -1,0 +1,20 @@
+#e1(08Nov2026:12:30:37): source ./xcelium.d/env.d/env.history.08Nov2026_12_30_37
+s1(08Nov2026:12:30:37):  xrun -access +rwc ../tb_perceptron_hs.v ../perceptron.v ../controller.v ../inputFIFO.v ../weightFIFO.v ../fmacc.v ../sigmoid.v ../outputFIFO.v 
+#e2(08Nov2026:12:45:41): source ./xcelium.d/env.d/env.history.08Nov2026_12_45_41
+s2(08Nov2026:12:45:41):  xrun -access +rwc -gui ../tb_perceptron_hs.v ../perceptron.v ../controller.v ../inputFIFO.v ../weightFIFO.v ../fmacc.v ../sigmoid.v ../outputFIFO.v 
+#e3(10Nov2026:22:08:41): source ./xcelium.d/env.d/env.history.10Nov2026_22_08_41
+s3(10Nov2026:22:08:41):  xrun -access +rwc ../tb_controller_hs.v ../controller.v 
+#e4(10Nov2026:22:12:17): source ./xcelium.d/env.d/env.history.10Nov2026_22_12_17
+s4(10Nov2026:22:12:17):  xrun -access +rwc ../tb_controller_hs.v ../controller.v 
+#e5(10Nov2026:22:14:39): source ./xcelium.d/env.d/env.history.10Nov2026_22_14_39
+s5(10Nov2026:22:14:39):  xrun -access +rwc ../tb_perceptron_hs.v ../perceptron.v ../controller.v ../inputFIFO.v ../weightFIFO.v ../fmacc.v ../sigmoid.v ../outputFIFO.v 
+#e6(11Nov2026:01:03:30): source ./xcelium.d/env.d/env.history.11Nov2026_01_03_30
+s6(11Nov2026:01:03:30):  xrun -access +rwc ../tb_controller_hs.v ../controller.v 
+#e7(11Nov2026:01:03:46): source ./xcelium.d/env.d/env.history.11Nov2026_01_03_46
+s7(11Nov2026:01:03:46):  xrun -access +rwc ../tb_perceptron_hs.v ../perceptron.v ../controller.v ../inputFIFO.v ../weightFIFO.v ../fmacc.v ../sigmoid.v ../outputFIFO.v 
+#e8(11Nov2026:01:04:00): source ./xcelium.d/env.d/env.history.11Nov2026_01_04_00
+s8(11Nov2026:01:04:00):  xrun -access +rwc -timescale 1ns/1ps +define+GATE ../tb_perceptron_hs.v ../outputs/perceptron_syn.v /usr/local/cadence/PDK/GPDK045/gsclib045_svt_v4.8/gsclib045/verilog/slow_vdd1v0_basicCells.v 
+#e9(11Nov2026:01:54:13): source ./xcelium.d/env.d/env.history.11Nov2026_01_54_13
+s9(11Nov2026:01:54:13):  xrun -access +rwc -timescale 1ns/1ps +define+GATE ../tb_perceptron_hs.v ../outputs/perceptron_syn.v /usr/local/cadence/PDK/GPDK045/gsclib045_svt_v4.8/gsclib045/verilog/slow_vdd1v0_basicCells.v 
+#e10(14Nov2026:16:14:07): source ./xcelium.d/env.d/env.history.14Nov2026_16_14_07
+s10(14Nov2026:16:14:07):  xrun -access +rwc ../tb_controller_hs.v ../controller.v -l ../reports/sim_controller.log 

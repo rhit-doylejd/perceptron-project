@@ -1,0 +1,55 @@
+[11/09 13:23:38      0s] 
+[11/09 13:23:38      0s] Cadence Innovus(TM) Implementation System.
+[11/09 13:23:38      0s] Copyright 2025 Cadence Design Systems, Inc. All rights reserved worldwide.
+[11/09 13:23:38      0s] 
+[11/09 13:23:38      0s] Version:	v25.13-s088_1, built Thu Mar 26 12:37:48 PDT 2026
+[11/09 13:23:38      0s] Options:	-stylus 
+[11/09 13:23:38      0s] Date:		Mon Nov  9 13:23:38 2026
+[11/09 13:23:38      0s] Host:		cadence-c438.rose-hulman.edu (x86_64 w/Linux 6.12.0-206.104.4.4.el9uek.x86_64) (20cores*40cpus*Intel(R) Xeon(R) Gold 6210U CPU @ 2.50GHz 28160KB)
+[11/09 13:23:38      0s] OS:		Oracle Linux Server 9.8
+[11/09 13:23:38      0s] 
+[11/09 13:23:38      0s] License:
+[11/09 13:23:38      0s] 		[13:23:38.269217] Configured Lic search path (25.01-s002): 5280@cadence-lm.rose-hulman.edu
+[11/09 13:23:38      0s] 
+[11/09 13:23:38      0s] 		invs	Innovus Implementation System	INVS100	25.1
+[11/09 13:23:38      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[11/09 13:23:53     15s] Memory management switch to non-aggressive memory release mode.
+[11/09 13:23:53     15s] 
+[11/09 13:23:53     15s] OS Mmap count monitoring thread starts. Limit of OS Mmap count is 65530
+[11/09 13:23:53     15s] 
+[11/09 13:23:53     15s] 
+[11/09 13:23:53     15s] 
+[11/09 13:23:55     17s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v25.13-s088_1 (64bit) 03/26/2026 12:37 (Linux 4.18.0-305.el8.x86_64)
+[11/09 13:23:59     21s] @(#)CDS: NanoRoute 25.13-s088_1 NR260309-1855/25_13-UB (database version 18.20.683) {superthreading v2.20}
+[11/09 13:23:59     21s] @(#)CDS: AAE 25.13-s023 (64bit) 03/26/2026 (Linux 4.18.0-305.el8.x86_64)
+[11/09 13:23:59     21s] @(#)CDS: CTE 25.13-s044_1 () Mar 24 2026 17:45:14 ( )
+[11/09 13:23:59     21s] @(#)CDS: SYNTECH 25.13-s012_1 () Mar 10 2026 03:01:02 ( )
+[11/09 13:23:59     21s] @(#)CDS: CPE v25.13-s019
+[11/09 13:23:59     21s] @(#)CDS: IQuantus/TQuantus 24.1.0-s476 (64bit) Wed Feb 11 22:11:27 PST 2026 (Linux 4.18.0-305.el8.x86_64)
+[11/09 13:23:59     21s] @(#)CDS: OA 22.62-p019 Fri Nov 14 16:24:43 2025
+[11/09 13:23:59     21s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[11/09 13:23:59     21s] @(#)CDS: RCDB 11.15.0
+[11/09 13:23:59     21s] @(#)CDS: STYLUS 25.13-e003_1 (02/12/2026 10:16 PST)
+[11/09 13:23:59     21s] @(#)CDS: IntegrityPlanner-25.13-417 (25.13) (2026-03-04 17:01:52+0800)
+[11/09 13:23:59     21s] @(#)CDS: SYNTHESIS_ENGINE 25.13-s071
+[11/09 13:23:59     21s] @(#)CDS: TCDB v25.12-s001
+[11/09 13:23:59     21s] Create and set the environment variable TMPDIR to /Users/students/doylejd/perceptron-project/innovus_temp_283831_473363ea-a177-460f-9783-6ec393cdcb10_cadence-c438.rose-hulman.edu_doylejd_foFIYK.
+
+[11/09 13:23:59     21s] Create and set the environment variable TMPDIR to /Users/students/doylejd/perceptron-project/innovus_temp_283831_473363ea-a177-460f-9783-6ec393cdcb10_cadence-c438.rose-hulman.edu_doylejd_foFIYK.
+[11/09 13:23:59     21s] 
+[11/09 13:23:59     21s] Change the soft stacksize limit to 0.2%RAM (126 mbytes). Set global soft_stack_size_limit to change the value.
+[11/09 13:24:01     22s] [INFO] Loading Pegasus 24.11 fill procedures
+[11/09 13:24:02     24s] Info: Process UID = 283831 / 473363ea-a177-460f-9783-6ec393cdcb10 / DDUpGagvUk
+[11/09 13:24:06     28s] 
+[11/09 13:24:06     28s] **INFO:  MMMC transition support version v31-84 
+[11/09 13:24:06     28s] 
+[11/09 13:24:11     32s] @innovus 1> set_db init_power_nets {VDD!}
+1 VDD!
+[11/09 13:25:08     36s] @innovus 2> set_db init_ground_nets {VSS!}
+1 VSS!
+[11/09 13:25:27     36s] @innovus 3> exit
+*** Message Summary: 0 warning(s), 0 error(s)
+[11/09 13:27:55     43s] 
+[11/09 13:27:55     43s] 
+[11/09 13:27:55     43s] *** Memory Usage v#1 (Current mem = 2648.137M, initial mem = 1527.691M) ***
+[11/09 13:27:55     43s] --- Ending "Innovus" (totcpu=0:00:43.1, real=0:04:17, mem=2648.1M) ---
