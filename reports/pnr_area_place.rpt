@@ -1,0 +1,9 @@
+    Hinst Name       Module Name          Inst Count           Total Area
+----------------------------------------------------------------------
+perceptron                                      3418            10829.430
+  I0                 controller                  296              857.052
+  I1                 fmacc                      1045             3305.430
+  I2                 inputFIFO                   237              775.656
+  I3                 outputFIFO                  197              845.424
+  I4                 sigmoid                    1062             2824.236
+  I5                 weightFIFO                  438             1677.510
